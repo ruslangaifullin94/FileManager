@@ -7,10 +7,15 @@
 
 import UIKit
 import PhotosUI
+import KeychainSwift
+
+protocol ViewControllerDelegate: AnyObject {
+    func reload()
+}
 
 class ViewController: UIViewController {
     
-    var model = Model(path: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!)
+    var model: Model
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -20,20 +25,31 @@ class ViewController: UIViewController {
         return tableView
     }()
     
-
+    init(model: Model) {
+        self.model = model
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         setupSubviewsAndConstraits()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
     
     private func setupView() {
         title = model.title
         view.backgroundColor = .systemBackground
         let folderBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "folder.badge.plus"), style: .done, target: self, action: #selector(addFolder))
         let imageBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "photo.on.rectangle"), style: .done, target: self, action: #selector(addImage))
-        
         navigationItem.rightBarButtonItems = [imageBarButtonItem, folderBarButtonItem]
     }
     
@@ -66,8 +82,7 @@ class ViewController: UIViewController {
                 if status == .authorized {
                     self.showImagePicker()
                 } else {
-return
-                    
+                    return
                 }
             }
         } else if PHPhotoLibrary.authorizationStatus(for: .readWrite) == .authorized {
@@ -78,7 +93,10 @@ return
     }
     
     @objc private func addFolder() {
-        
+        AlertNotification.shared.showPickerAddFolder(in: self, withTitle: "Создать папку?") { text in
+            self.model.createFolder(name: text)
+            self.tableView.reloadData()
+        }
     }
 
     @objc private func addImage() {
@@ -93,7 +111,9 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             model.deleteItem(withPath: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.reloadSections([0,0], with: .automatic)
+            
         }
     }
 }
@@ -107,11 +127,25 @@ extension ViewController: UITableViewDataSource {
         model.items.count
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if model.isPathForItemIsFolder(index: indexPath.row) {
+            let model = Model(path: model.path + "/" + model.items[indexPath.row])
+            let viewController = ViewController(model: model)
+            navigationController?.pushViewController(viewController, animated: true)
+        } else {
+            let detailViewController = DetailViewController(imageUrl: model.items[indexPath.row], path: model.path)
+            navigationController?.pushViewController(detailViewController, animated: true)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         var configForCell = UIListContentConfiguration.cell()
         configForCell.text = model.items[indexPath.row]
-        
+        if model.isPathForItemIsFolder(index: indexPath.row) {
+            configForCell.image = UIImage(systemName: "folder.fill")
+        }
+        cell.accessoryType = model.isPathForItemIsFolder(index: indexPath.row) ? .disclosureIndicator : .none
         cell.contentConfiguration = configForCell
         return cell
     }
@@ -139,8 +173,13 @@ extension ViewController: PHPickerViewControllerDelegate {
                     }
                 }
             }
-            
         }
     }
     
+}
+
+extension ViewController: ViewControllerDelegate {
+    func reload() {
+        tableView.reloadData()
+    }
 }

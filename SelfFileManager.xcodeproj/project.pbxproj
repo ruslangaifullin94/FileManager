@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A28D41A2A58B0D600433B45 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5A28D4192A58B0D600433B45 /* KeychainSwift */; };
+		5A28D41C2A58B11000433B45 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A28D41B2A58B11000433B45 /* LoginViewController.swift */; };
+		5A28D4202A58B49000433B45 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A28D41F2A58B49000433B45 /* SettingsViewController.swift */; };
+		5A28D4232A58BD1C00433B45 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A28D4222A58BD1C00433B45 /* ChangePasswordViewController.swift */; };
+		5A28D4252A5ABAD700433B45 /* LoginCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A28D4242A5ABAD700433B45 /* LoginCheck.swift */; };
+		5A28D4272A5ABF2700433B45 /* AlertNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A28D4262A5ABF2700433B45 /* AlertNotification.swift */; };
+		5A28D4292A5AC1D400433B45 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A28D4282A5AC1D400433B45 /* LoginViewModel.swift */; };
+		5A28D42B2A5B328000433B45 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A28D42A2A5B328000433B45 /* DetailViewController.swift */; };
 		5AB16E122A548658005FB1BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB16E112A548658005FB1BB /* AppDelegate.swift */; };
 		5AB16E142A548658005FB1BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB16E132A548658005FB1BB /* SceneDelegate.swift */; };
 		5AB16E162A548658005FB1BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB16E152A548658005FB1BB /* ViewController.swift */; };
@@ -16,6 +24,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A28D41B2A58B11000433B45 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5A28D41F2A58B49000433B45 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		5A28D4222A58BD1C00433B45 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		5A28D4242A5ABAD700433B45 /* LoginCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCheck.swift; sourceTree = "<group>"; };
+		5A28D4262A5ABF2700433B45 /* AlertNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertNotification.swift; sourceTree = "<group>"; };
+		5A28D4282A5AC1D400433B45 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		5A28D42A2A5B328000433B45 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		5AB16E0E2A548658005FB1BB /* SelfFileManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SelfFileManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AB16E112A548658005FB1BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5AB16E132A548658005FB1BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,12 +46,42 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A28D41A2A58B0D600433B45 /* KeychainSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A28D41D2A58B3F300433B45 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				5A28D41B2A58B11000433B45 /* LoginViewController.swift */,
+				5A28D4242A5ABAD700433B45 /* LoginCheck.swift */,
+				5A28D4282A5AC1D400433B45 /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		5A28D41E2A58B40000433B45 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				5A28D41F2A58B49000433B45 /* SettingsViewController.swift */,
+				5A28D4222A58BD1C00433B45 /* ChangePasswordViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		5A28D4212A58B49700433B45 /* FileManager */ = {
+			isa = PBXGroup;
+			children = (
+				5AB16E152A548658005FB1BB /* ViewController.swift */,
+				5AB16E252A554C54005FB1BB /* Model.swift */,
+				5A28D42A2A5B328000433B45 /* DetailViewController.swift */,
+			);
+			path = FileManager;
+			sourceTree = "<group>";
+		};
 		5AB16E052A548658005FB1BB = {
 			isa = PBXGroup;
 			children = (
@@ -56,13 +101,15 @@
 		5AB16E102A548658005FB1BB /* SelfFileManager */ = {
 			isa = PBXGroup;
 			children = (
+				5A28D4212A58B49700433B45 /* FileManager */,
+				5A28D41E2A58B40000433B45 /* Settings */,
+				5A28D41D2A58B3F300433B45 /* Login */,
 				5AB16E112A548658005FB1BB /* AppDelegate.swift */,
+				5A28D4262A5ABF2700433B45 /* AlertNotification.swift */,
 				5AB16E132A548658005FB1BB /* SceneDelegate.swift */,
-				5AB16E152A548658005FB1BB /* ViewController.swift */,
 				5AB16E1A2A54865A005FB1BB /* Assets.xcassets */,
 				5AB16E1C2A54865A005FB1BB /* LaunchScreen.storyboard */,
 				5AB16E1F2A54865A005FB1BB /* Info.plist */,
-				5AB16E252A554C54005FB1BB /* Model.swift */,
 			);
 			path = SelfFileManager;
 			sourceTree = "<group>";
@@ -83,6 +130,9 @@
 			dependencies = (
 			);
 			name = SelfFileManager;
+			packageProductDependencies = (
+				5A28D4192A58B0D600433B45 /* KeychainSwift */,
+			);
 			productName = SelfFileManager;
 			productReference = 5AB16E0E2A548658005FB1BB /* SelfFileManager.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +161,9 @@
 				Base,
 			);
 			mainGroup = 5AB16E052A548658005FB1BB;
+			packageReferences = (
+				5A28D4182A58B0D600433B45 /* XCRemoteSwiftPackageReference "keychain-swift" */,
+			);
 			productRefGroup = 5AB16E0F2A548658005FB1BB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,10 +190,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A28D42B2A5B328000433B45 /* DetailViewController.swift in Sources */,
 				5AB16E162A548658005FB1BB /* ViewController.swift in Sources */,
 				5AB16E122A548658005FB1BB /* AppDelegate.swift in Sources */,
+				5A28D4252A5ABAD700433B45 /* LoginCheck.swift in Sources */,
 				5AB16E142A548658005FB1BB /* SceneDelegate.swift in Sources */,
+				5A28D41C2A58B11000433B45 /* LoginViewController.swift in Sources */,
 				5AB16E262A554C54005FB1BB /* Model.swift in Sources */,
+				5A28D4202A58B49000433B45 /* SettingsViewController.swift in Sources */,
+				5A28D4232A58BD1C00433B45 /* ChangePasswordViewController.swift in Sources */,
+				5A28D4292A5AC1D400433B45 /* LoginViewModel.swift in Sources */,
+				5A28D4272A5ABF2700433B45 /* AlertNotification.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,10 +342,11 @@
 				DEVELOPMENT_TEAM = N4T632DPGK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SelfFileManager/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Дай пожалуйста доступ к библиотеке";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -309,10 +370,11 @@
 				DEVELOPMENT_TEAM = N4T632DPGK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SelfFileManager/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Дай пожалуйста доступ к библиотеке";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -348,6 +410,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5A28D4182A58B0D600433B45 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 20.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5A28D4192A58B0D600433B45 /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5A28D4182A58B0D600433B45 /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5AB16E062A548658005FB1BB /* Project object */;
 }
